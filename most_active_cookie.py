@@ -71,7 +71,7 @@ def calc_cookie(lines:list[str], date_str:str):
             cookie_activity[cookie] += 1
     
     # Sorts cookies by cookie_activity count first. Can edit lambda to have further tiebreakers i: (i[1], i[2], etc.)
-    sorted_cookies = sorted(cookie_activity.items(), key=lambda i: i[1])
+    sorted_cookies = sorted(cookie_activity.items(), key=lambda i: i[1], reverse=True)
     if len(sorted_cookies) == 0:
         print(f"No active cookies on {date_str}")
     else:
