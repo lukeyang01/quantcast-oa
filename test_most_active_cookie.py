@@ -34,6 +34,25 @@ class TestArgs(unittest.TestCase):
             parse_args(args)
     
 class TestCalc(unittest.TestCase):
+
+    def test_spec(self):
+        lines =     ['AtY0laUfhglK3lC7,2018-12-09T14:19:00+00:00\n',
+                    'SAZuXPGUrfbcn5UA,2018-12-09T10:13:00+00:00\n',
+                    '5UAVanZf6UtGyKVS,2018-12-09T07:25:00+00:00\n',
+                    'AtY0laUfhglK3lC7,2018-12-09T06:19:00+00:00\n',
+                    'SAZuXPGUrfbcn5UA,2018-12-08T22:03:00+00:00\n',
+                    '4sMM2LxV07bPJzwf,2018-12-08T21:30:00+00:00\n',
+                    'fbcn5UAVanZf6UtG,2018-12-08T09:30:00+00:00\n',
+                    '4sMM2LxV07bPJzwf,2018-12-07T23:30:00+00:00\n']
+        date_str = '2018-12-08'
+
+        out = calc_cookie(lines, date_str)
+        self.assertEqual(out, ['SAZuXPGUrfbcn5UA', '4sMM2LxV07bPJzwf', 'fbcn5UAVanZf6UtG'])
+
+        date_str = '2018-12-09'
+        out = calc_cookie(lines, date_str)
+        self.assertEqual(out, ['AtY0laUfhglK3lC7',])
+
     def test_one(self):
         lines =     ['AtY0laUfhglK3lC7,2018-12-09T14:19:00+00:00\n',]
         date_str = '2018-12-09'
