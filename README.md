@@ -1,7 +1,6 @@
 # quantcast-oa
 
-With python installed, run with:
-'python3 most_active_cookie.py [ INPUT_FILENAME ] -d [ DATE_STRING ]'
+With python installed, run with:``` python3 most_active_cookie.py [ INPUT_FILENAME ] -d [ DATE_STRING ] ```
 
 **SPECIFICATION:**
 Given an input parameter date, the purpose of this program is to parse through a cookie log file in the following format:
@@ -33,3 +32,8 @@ If multiple cookies meet that criteria, they are all returned.
 -INPUT_FILENAME: csv file to parse, (each line is in the format cookie,timestamp)
 
 -DATE_STRING: date string in format 'YYYY-MM-DD'
+
+
+**TESTING SUITE**:
+
+To run: ```python3 test_most_active_cookie.py```

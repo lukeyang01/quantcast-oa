@@ -3,33 +3,33 @@ Testing Suite:
 # CODE ACCURACY TESTS
 
 TEST A0 - test empty results: should print 'no results'
-python3 most_active_cookie.py test_one.csv -d '2018-12-08'
+python3 most_active_cookie.py tests/test_one.csv -d '2018-12-08'
 
 TEST A1 - test tied activity count: should print five results
-python3 most_active_cookie.py test_multiple_queries.csv -d '2018-12-08'
+python3 most_active_cookie.py tests/test_multiple_queries.csv -d '2018-12-08'
 
 TEST A2 - test more than 1 activity: should print 'SAZuXPGUrfbcn5UA', 
-python3 most_active_cookie.py test_sorted_order.csv -d '2018-12-08'
+python3 most_active_cookie.py tests/test_sorted_order.csv -d '2018-12-08'
 
 TEST A3 - test no overlap between days: should print 'AtY0laUfhglK3lC7', 
-python3 most_active_cookie.py test_sorted_order.csv -d '2018-12-09'
+python3 most_active_cookie.py tests/test_sorted_order.csv -d '2018-12-09'
 
 # CODE COVERAGE/FORMATTING ERROR CHECKS:
 
 TEST B0 - tests wrong cookie format: should exit with appropriate error
-python3 most_active_cookie.py test_wrong_cookie.csv -d '2018-12-08'
+python3 most_active_cookie.py tests/test_wrong_cookie.csv -d '2018-12-08'
 
 TEST B1 - tests wrong date format: should exit with appropriate error
-python3 most_active_cookie.py test_wrong_date.csv -d '2018-12-08'
+python3 most_active_cookie.py tests/test_wrong_date.csv -d '2018-12-08'
 
 TEST B2 - tests wrong time format: should exit with appropriate error
-python3 most_active_cookie.py test_wrong_time.csv -d '2018-12-08'
+python3 most_active_cookie.py tests/test_wrong_time.csv -d '2018-12-08'
 
 TEST B3 - tests wrong filename: should exit with appropriate error
-python3 most_active_cookie.py test_wrong_fname.csv -d '2018-12-08'
+python3 most_active_cookie.py tests/test_wrong_fname.csv -d '2018-12-08'
 
 TEST B4 - tests wrong num of args: should exit with appropriate error
-python3 most_active_cookie.py spec_example.csv '2018-12-08'
+python3 most_active_cookie.py tests/spec_example.csv '2018-12-08'
 
 TEST B5 - tests wrong date format: should exit with appropriate error
-python3 most_active_cookie.py spec_example.csv -d '08-12-2022'
+python3 most_active_cookie.py tests/spec_example.csv -d '08-12-2022'
