@@ -58,12 +58,16 @@ def calc_cookie(lines:list[str], date_str:str):
             Prints maximum activity cookie/cookies
     """
     # Currently only tracking count (int). Can edit to track other info (e.g. timestamp, etc.) with lambda: (0, 0)
+    # IF DEFAULTDICT IS NOT ALLOWED: CAN BE REPLACED WITH COMMENTED CODE
     cookie_activity = defaultdict(int)
+    # cookie_activity = {}
 
     for line in lines:
         cookie, timestamp = line.rstrip().split(',')
         date, time = timestamp.split('T')
         if verify_line(cookie, date, time) and date_str == date:
+            # if cookie not in cookie_activity:
+            #     cookie_activity[cookie] = 0
             cookie_activity[cookie] += 1
     
     # Sorts cookies by cookie_activity count first. Can edit lambda to have further tiebreakers i: (i[1], i[2], etc.)
