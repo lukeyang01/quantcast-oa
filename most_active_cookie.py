@@ -21,8 +21,8 @@ def parse_args(args):
         print(f"Error: {fname} must match the format: 'INPUT_FILENAME.csv'")
         exit(1)
 
-    year, month, date = date_str.split('-')
-    if len(year) != 4 or len(month) != 2 or len(date) != 2:
+    date_pat = r'\d{4}-\d{2}-\d{2}' # YYYY-MM-DD, all digits
+    if not re.match(date_pat, date_str):
         print(f"Error: {date_str} must match the format: 'YYYY-MM-DD' (UTC timezone)")
         exit(1)
 
@@ -46,9 +46,18 @@ def verify_line(cookie, date, time):
     date_pat = r'\d{4}-\d{2}-\d{2}' # YYYY-MM-DD, all digits
     time_pat = r'\d{2}:\d{2}:\d{2}\+\d{2}:\d{2}' # HH:MM:SS+DD:DD, all digits
 
-    if not (re.match(cookie_pat, cookie) and re.match(date_pat, date) and re.match(time_pat, time)):
-        print(f"Error: {cookie, date, time} does not match specifications")
+    if not re.match(cookie_pat, cookie):
+        print(f"Error: {cookie, date, time} does not match specification: cookie string does not match spec")
         exit(2)
+
+    if not re.match(date_pat, date):
+        print(f"Error: {cookie, date, time} does not match specification: date string does not match spec")
+        exit(2)
+
+    if not re.match(time_pat, time):
+        print(f"Error: {cookie, date, time} does not match specification: time string does not match spec")
+        exit(2)
+        
     return True
 
 def calc_cookie(lines:list[str], date_str:str):
